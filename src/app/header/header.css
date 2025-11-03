@@ -1,7 +1,7 @@
 .glass-container {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     0 8px 32px 0 rgba(0, 0, 0, 0.37),
@@ -12,8 +12,8 @@
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   display: flex;
