@@ -4,3 +4,9 @@
 @theme {
   --font-sans: "Inter", sans-serif;
 }
+
+@layer components {
+  .active {
+    @apply border-b-2 border-blue-500;
+  }
+}
