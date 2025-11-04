@@ -1,0 +1,43 @@
+<div
+  class="h-full overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+>
+  <div class="p-6 flex flex-col flex-grow">
+    <div class="flex-grow">
+      <a
+        [href]="repo.html_url"
+        target="_blank"
+        class="block text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+      >
+        {{ repo.name }}
+      </a>
+      <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
+        {{ repo.language || 'General' }}
+      </span>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        {{ repo.description || 'No description provided.' }}
+      </p>
+    </div>
+
+    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <img
+            class="object-cover h-10 w-10 rounded-full"
+            [src]="repo.owner.avatar_url"
+            alt="Avatar"
+          />
+          <a
+            [href]="repo.owner.html_url"
+            target="_blank"
+            class="ml-2 font-semibold text-gray-700 dark:text-gray-200 hover:underline"
+          >
+            {{ repo.owner.login }}
+          </a>
+        </div>
+        <span class="text-xs text-gray-600 dark:text-gray-300">
+          {{ repo.updated_at | date : 'mediumDate' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-text {
+  display: inline-block;
+  will-change: transform;
+}
