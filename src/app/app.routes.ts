@@ -4,6 +4,7 @@ import { About } from './about/about';
 import { Projects } from './projects/projects';
 import { Blog } from './blog/blog';
 import { Pagenotfound } from './pagenotfound/pagenotfound';
+import { Cv } from './cv/cv';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,11 @@ export const routes: Routes = [
     path: 'blog',
     component: Blog,
     title: 'Blog',
+  },
+  {
+    path: 'resume',
+    component: Cv,
+    title: 'Resume',
   },
   {
     path: '**',

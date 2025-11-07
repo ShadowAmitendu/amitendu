@@ -3,8 +3,45 @@
     <!-- Header -->
     <div class="mb-12 text-center">
       <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-4">Projects</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400">Discover amazing Software and Goodies</p>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Discover amazing Software and Goodies made by Me!
+      </p>
     </div>
+
+    <!-- Language Filter -->
+    @if (!loading && languages.length > 0) {
+    <div class="mb-8">
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          (click)="filterByLanguage('all')"
+          [class.bg-blue-600]="selectedLanguage === 'all'"
+          [class.text-white]="selectedLanguage === 'all'"
+          [class.bg-gray-200]="selectedLanguage !== 'all'"
+          [class.dark:bg-gray-700]="selectedLanguage !== 'all'"
+          [class.text-gray-700]="selectedLanguage !== 'all'"
+          [class.dark:text-gray-300]="selectedLanguage !== 'all'"
+          class="px-4 py-2 rounded-full font-medium transition-all duration-200 hover:scale-105 hover:shadow-md"
+        >
+          All ({{ repos.length }})
+        </button>
+
+        @for (lang of languages; track lang) {
+        <button
+          (click)="filterByLanguage(lang)"
+          [class.bg-blue-600]="selectedLanguage === lang"
+          [class.text-white]="selectedLanguage === lang"
+          [class.bg-gray-200]="selectedLanguage !== lang"
+          [class.dark:bg-gray-700]="selectedLanguage !== lang"
+          [class.text-gray-700]="selectedLanguage !== lang"
+          [class.dark:text-gray-300]="selectedLanguage !== lang"
+          class="px-4 py-2 rounded-full font-medium transition-all duration-200 hover:scale-105 hover:shadow-md"
+        >
+          {{ lang }} ({{ getLanguageCount(lang) }})
+        </button>
+        }
+      </div>
+    </div>
+    }
 
     <!-- Loading Spinner -->
     @if (loading) {
@@ -21,8 +58,12 @@
     <!-- Grid Layout for Cards -->
     @if (!loading) {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (repo of repos; track repo.name) {
+      @for (repo of filteredRepos; track repo.name) {
       <app-repo-card [repo]="repo"></app-repo-card>
+      } @if (filteredRepos.length === 0) {
+      <div class="col-span-full text-center py-12">
+        <p class="text-gray-500 dark:text-gray-400 text-lg">No projects found for this language.</p>
+      </div>
       }
     </div>
     }
